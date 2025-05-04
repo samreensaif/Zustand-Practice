@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/sheet"
 import Image from "next/image"
 import { useCartStore } from "@/stores/CartStore/cartStore"
+import Link from "next/link"
 
 export function CartSheet({ children }: { children: React.ReactNode }) {
   const cartItems = useCartStore(state => state.items);
@@ -77,9 +78,12 @@ export function CartSheet({ children }: { children: React.ReactNode }) {
               <span className="text-sm font-medium">Total</span>
               <span className="text-lg font-bold">{totalPrice.toFixed(2)}</span>
             </div>
+            <Link href="/checkout">  
             <Button className="w-full sm:w-auto" disabled={cartItems.length === 0}>
               Checkout
             </Button>
+            </Link>
+            
           </SheetFooter>
         )}
       </SheetContent>

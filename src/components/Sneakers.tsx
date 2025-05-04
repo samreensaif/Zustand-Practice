@@ -42,7 +42,8 @@ export default function Sneakers() {
               </div>
             </Link>
             <div className="min-h-[50px] p-4 !pt-0">
-              <button type="button" className="absolute left-0 right-0 bottom-3 max-w-[88%] mx-auto text-sm px-2 py-2 font-medium w-full bg-blue-600 hover:bg-blue-700 text-white tracking-wide outline-none border-none rounded">Add to cart</button>
+              <button type="button" className="absolute left-0 right-0 bottom-3 max-w-[88%] mx-auto text-sm px-2 py-2 
+              font-medium w-full bg-blue-600 hover:bg-blue-700 text-white hover:cursor-pointer              ">View Details</button>
             </div>
           </div>
           )

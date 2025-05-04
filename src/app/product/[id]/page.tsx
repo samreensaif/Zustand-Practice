@@ -3,16 +3,11 @@
 import { useCartStore } from '@/stores/CartStore/cartStore';
 import { Stars } from 'lucide-react';
 import Image from 'next/image'
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
 import React from 'react'
 
-type Props = {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-};
 
 
 function ProductDetail() {
@@ -24,7 +19,7 @@ function ProductDetail() {
     const image = searchParams.get('image');
     const name = searchParams.get('name' ); // name query parameter ko access karna
     const addToCart = useCartStore((state) => state.addToCart);
-
+    const imageSrc = image || '/sn1.jpg';
   return (
     <>
     
@@ -32,7 +27,7 @@ function ProductDetail() {
       <div className="grid items-start grid-cols-1 lg:grid-cols-3 px-5 py-10">
         
           <Image
-            src={image || ''}
+            src={imageSrc}
             alt={name || ''}
             width={500}
             height={500}
@@ -69,6 +64,16 @@ function ProductDetail() {
             className="w-full px-4 py-2.5 border border-slate-800 
             bg-transparent hover:bg-slate-50 text-slate-900 text-sm font-medium rounded-md">Add to cart</button>
             
+          </div>
+
+          <div className="mt-8">
+              <Link href="/checkout" >
+              
+            <button type="button" className="w-full px-4 py-2.5 border border-slate-800 
+            bg-transparent hover:bg-slate-50 text-slate-900 text-sm font-medium rounded-md">Buy Now</button>
+
+</Link>
+
           </div>
 
           <div className="mt-8">
